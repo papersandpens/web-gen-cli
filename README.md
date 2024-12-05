@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NTI Website
+
+A modern web application built with Next.js 14, featuring server-side rendering, CMS integration, and course management.
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** TailwindCSS
+- **CMS:** Sanity
+- **Course Platform:** Thinkific API
+- **Testing:** Vitest + React Testing Library
+- **Language:** TypeScript
+
+## Key Features
+
+- **Server-First Approach**
+  - Leverages Next.js 14 Server Components for optimal performance
+  - Uses Server Actions for form handling and data mutations
+  - Progressive enhancement with client components when needed
+
+- **Content Management**
+  - Sanity CMS integration for flexible content management
+  - Real-time content updates
+  - Structured content modeling
+
+- **Course Integration**
+  - Seamless integration with Thinkific's API
+  - Fetch and display NTI course data
+  - Course enrollment and progress tracking
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/papersandpens/nti-website.git
+   cd nti-website
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Fill in the required environment variables:
+   ```
+   NEXT_PUBLIC_SANITY_PROJECT_ID=
+   NEXT_PUBLIC_SANITY_DATASET=
+   SANITY_API_TOKEN=
+   THINKIFIC_API_KEY=
+   THINKIFIC_SUBDOMAIN=
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Run tests**
+   ```bash
+   npm test
+   ```
 
-## Learn More
+## Development Guidelines
 
-To learn more about Next.js, take a look at the following resources:
+- Prefer Server Components by default
+- Use Client Components only when necessary (interactivity, browser APIs)
+- Implement Server Actions for data mutations
+- Write tests for critical functionality
+- Follow the established folder structure:
+  ```
+  app/
+  ├── (routes)/           # App router pages
+  │   ├── route-name/     # Specific route
+  │   │   ├── _components/  # Route-specific components
+  │   │   ├── __tests__/   # Route-specific tests
+  │   │   ├── utils/       # Route-specific utilities
+  │   │   ├── types/       # Route-specific types
+  │   │   ├── page.tsx     # Page component
+  │   │   └── layout.tsx   # Optional layout
+  │   └── ...
+  ├── components/         # Shared components
+  ├── lib/               # Shared utility functions
+  ├── sanity/            # Sanity configuration
+  └── types/             # Shared TypeScript definitions
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each route follows a modular structure:
+- `_components/`: Components scoped to the specific route
+- `__tests__/`: Test files for the route's components and functionality
+- `utils/`: Helper functions and utilities specific to the route
+- `types/`: TypeScript interfaces and types used within the route
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Testing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+We use Vitest and React Testing Library for unit testing. Tests are located next to their corresponding components:
