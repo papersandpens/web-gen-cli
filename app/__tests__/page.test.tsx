@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import { expect, test } from "vitest";
-import Page from "../page";
+import Page from "../(frontend)/page";
 
 test("Page", () => {
   render(<Page />);
