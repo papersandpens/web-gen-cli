@@ -1,0 +1,14 @@
+{
+  "common": {
+    "nav": {
+      "home": "Trang chủ",
+      "courses": "Khóa học",
+      "about": "Giới thiệu"
+    }
+  },
+  "home": {
+    "title": "Chào mừng đến với NTI",
+    "description": "Học tập và phát triển cùng chúng tôi",
+    "greeting": "Xin chào, {name}!"
+  }
+} 

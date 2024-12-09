@@ -1,0 +1,14 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "courses": "Courses",
+      "about": "About"
+    }
+  },
+  "home": {
+    "title": "Welcome to NTI",
+    "description": "Learn and grow with us",
+    "greeting": "Hello, {name}!"
+  }
+} 
