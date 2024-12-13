@@ -1,8 +1,14 @@
+import { generateBlogJsonLd } from "@/app/lib/utils/generateBlogJsonLd";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
 import { groq } from "next-sanity";
 import Image from "next/image";
+
+type Props = {
+  params: { locale: string; slug: string };
+};
 
 type BlogPost = {
   title: { [key: string]: string };
@@ -19,9 +25,69 @@ const getBlogPost = groq`
     content,
     featuredImage,
     createdAt,
-    author->{ name }
+    author->{ name },
+    seoDescription,
+    seoKeywords,
+    shortDescription
   }
 `;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = params;
+  const post = await client.fetch(getBlogPost, { locale, slug });
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://newturing.ai";
+
+  if (!post) {
+    return {
+      title: "Blog Post Not Found",
+    };
+  }
+
+  // Generate JSON-LD for this specific blog post
+  const blogJsonLd = generateBlogJsonLd({
+    blog: post,
+    baseUrl,
+    locale,
+  });
+
+  return {
+    title: post.title[locale],
+    description:
+      post.seoDescription?.[locale] || post.shortDescription?.[locale] || "",
+    keywords: post.seoKeywords?.[locale] || [],
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blogs/${slug}`,
+    },
+    openGraph: {
+      title: post.title[locale],
+      description:
+        post.seoDescription?.[locale] || post.shortDescription?.[locale] || "",
+      url: `${baseUrl}/${locale}/blogs/${slug}`,
+      siteName: "NTI - The New Turing Institute",
+      locale: locale,
+      type: "article",
+      publishedTime: post.createdAt,
+      modifiedTime: post._updatedAt,
+      authors: post.author?.name || "NTI",
+      images: [
+        {
+          url: urlFor(post.featuredImage).url(),
+          alt: post.featuredImage.alt || post.title[locale],
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title[locale],
+      description:
+        post.seoDescription?.[locale] || post.shortDescription?.[locale] || "",
+      images: [urlFor(post.featuredImage).url()],
+    },
+    other: {
+      "script:ld+json": JSON.stringify(blogJsonLd),
+    },
+  };
+}
 
 export default async function BlogPost({
   params,
@@ -32,6 +98,8 @@ export default async function BlogPost({
     locale: params.locale,
     slug: params.slug,
   });
+
+  console.log("post", post);
 
   if (!post) {
     return <div>Post not found</div>;

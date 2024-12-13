@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 
+import { Metadata } from "next";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +13,7 @@ type BlogPost = {
   shortDescription: { [key: string]: string };
   featuredImage: { asset: any; alt: string };
   createdAt: string;
+  seoKeywords?: { [key: string]: string[] };
 };
 
 const getBlogPosts = groq`
@@ -21,15 +23,60 @@ const getBlogPosts = groq`
     slug,
     shortDescription,
     featuredImage,
-    createdAt
+    createdAt,
+    seoKeywords
   }
 `;
 
-export default async function BlogsPage({
-  params,
-}: {
+type Props = {
   params: { locale: string };
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://newturing.ai";
+
+  return {
+    title: "Blog | NTI",
+    description:
+      "Explore our latest articles and insights about AI, technology, and education",
+    alternates: {
+      canonical: `${baseUrl}/${locale}/blogs`,
+    },
+    openGraph: {
+      title: "Blog | NTI",
+      description:
+        "Explore our latest articles and insights about AI, technology, and education",
+      url: `${baseUrl}/${locale}/blogs`,
+      siteName: "NTI - The New Turing Institute",
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Blog | NTI",
+      description:
+        "Explore our latest articles and insights about AI, technology, and education",
+    },
+    other: {
+      "script:ld+json": JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "NTI Blog",
+        description:
+          "Explore our latest articles and insights about AI, technology, and education",
+        url: `${baseUrl}/${locale}/blogs`,
+        publisher: {
+          "@type": "Organization",
+          name: "NTI - The New Turing Institute",
+          url: baseUrl,
+        },
+      }),
+    },
+  };
+}
+
+export default async function BlogsPage({ params }: Props) {
   const posts = await client.fetch<BlogPost[]>(getBlogPosts);
 
   return (
