@@ -1,6 +1,5 @@
 import { defineField } from "sanity";
 import { DEFAULT_LOCALE, LOCALES_OPTIONS } from "../config";
-import { createI18nField, isLanguageEnabled } from './validationUtils';
 
 export const localesField = defineField({
   name: "locales",
@@ -59,46 +58,12 @@ export const createLocalizedField = (
 };
 
 export const seoFields = [
-  defineField(createI18nField("seoTitle", "string")),
-  defineField(createI18nField("seoDescription", "text", { rows: 2 })),
   defineField({
     name: "seoKeywords",
     title: "SEO Keywords",
     type: "array",
     of: [{ type: "string" }],
     options: { layout: "tags" },
-  }),
-  defineField({
-    name: "canonicalURL",
-    title: "Canonical URL",
-    type: "object",
-    description: "The preferred URL for this content in each language",
-    fields: [
-      {
-        name: "en",
-        title: "English URL",
-        type: "url",
-        description: "e.g., https://yoursite.com/en/blog/post-slug",
-        hidden: ({ document }) => !isLanguageEnabled(document, "en"),
-        validation: (Rule) =>
-          Rule.uri({
-            allowRelative: true,
-            scheme: ["http", "https"],
-          }),
-      },
-      {
-        name: "vi",
-        title: "Vietnamese URL",
-        type: "url",
-        description: "e.g., https://yoursite.com/vi/blog/post-slug",
-        hidden: ({ document }) => !isLanguageEnabled(document, "vi"),
-        validation: (Rule) =>
-          Rule.uri({
-            allowRelative: true,
-            scheme: ["http", "https"],
-          }),
-      },
-    ],
   }),
   defineField({
     name: "ogImage",
