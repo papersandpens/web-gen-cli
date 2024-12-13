@@ -13,8 +13,10 @@
     "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.66.0",
+    "@tailwindcss/typography": "^0.5.15",
     "jsdom": "^25.0.1",
     "next": "14.2.20",
     "next-intl": "^3.26.0",
