@@ -52,27 +52,54 @@ export type PrivacyPolicy = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
+  locales?: Array<string>;
+  title?: {
+    en?: string;
+    vi?: string;
+  };
+  slug?: {
+    en?: Slug;
+    vi?: Slug;
+  };
   lastUpdated?: string;
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
+  content?: {
+    en?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
       _key: string;
     }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
+    vi?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
       _key: string;
     }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
+  };
   isActive?: boolean;
 };
 
@@ -82,27 +109,54 @@ export type TermsOfUse = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
+  locales?: Array<string>;
+  title?: {
+    en?: string;
+    vi?: string;
+  };
+  slug?: {
+    en?: Slug;
+    vi?: Slug;
+  };
   lastUpdated?: string;
-  content?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
+  content?: {
+    en?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
       _key: string;
     }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
+    vi?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
       _key: string;
     }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
+  };
   isActive?: boolean;
 };
 
@@ -319,16 +373,7 @@ export type Event = {
     _type: "image";
   };
   tags?: Array<string>;
-  seoTitle?: {
-    en?: string;
-    vi?: string;
-  };
-  seoDescription?: {
-    en?: string;
-    vi?: string;
-  };
   seoKeywords?: Array<string>;
-  canonicalURL?: string;
   ogImage?: {
     asset?: {
       _ref: string;
@@ -454,16 +499,8 @@ export type Blog = {
     [internalGroqTypeReferenceTo]?: "blog";
   }>;
   tags?: Array<string>;
-  seoTitle?: {
-    en?: string;
-    vi?: string;
-  };
-  seoDescription?: {
-    en?: string;
-    vi?: string;
-  };
+  seoNote?: string;
   seoKeywords?: Array<string>;
-  canonicalURL?: string;
   ogImage?: {
     asset?: {
       _ref: string;
@@ -483,6 +520,7 @@ export type BlogTestimonial = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  locales?: Array<string>;
   quote?: {
     en?: string;
     vi?: string;
@@ -539,6 +577,7 @@ export type Author = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  locales?: Array<string>;
   name?: string;
   bio?: {
     en?: string;
@@ -622,3 +661,136 @@ export type Slug = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | PrivacyPolicy | TermsOfUse | Faq | Social | CustomerTestimonial | Event | Blog | BlogTestimonial | SanityFileAsset | Author | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: app/(frontend)/[locale]/blogs/page.tsx
+// Variable: getBlogPosts
+// Query: *[_type == "blog"] | order(createdAt desc) {    _id,    title,    slug,    shortDescription,    featuredImage,    createdAt,    seoKeywords  }
+export type GetBlogPostsResult = Array<{
+  _id: string;
+  title: {
+    en?: string;
+    vi?: string;
+  } | null;
+  slug: {
+    en?: Slug;
+    vi?: Slug;
+  } | null;
+  shortDescription: {
+    en?: string;
+    vi?: string;
+  } | null;
+  featuredImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  createdAt: string | null;
+  seoKeywords: Array<string> | null;
+}>;
+
+// Source: app/(frontend)/[locale]/blogs/[slug]/page.tsx
+// Variable: getBlogPost
+// Query: *[_type == "blog" && slug[$locale].current == $slug][0] {    title,    content,    featuredImage,    createdAt,    author->{ name },    seoDescription,    seoKeywords,    shortDescription  }
+export type GetBlogPostResult = {
+  title: {
+    en?: string;
+    vi?: string;
+  } | null;
+  content: {
+    en?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    } | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+      _key: string;
+    }>;
+    vi?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    } | {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+      _key: string;
+    }>;
+  } | null;
+  featuredImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  createdAt: string | null;
+  author: {
+    name: string | null;
+  } | null;
+  seoDescription: null;
+  seoKeywords: Array<string> | null;
+  shortDescription: {
+    en?: string;
+    vi?: string;
+  } | null;
+} | null;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "\n  *[_type == \"blog\"] | order(createdAt desc) {\n    _id,\n    title,\n    slug,\n    shortDescription,\n    featuredImage,\n    createdAt,\n    seoKeywords\n  }\n": GetBlogPostsResult;
+    "\n  *[_type == \"blog\" && slug[$locale].current == $slug][0] {\n    title,\n    content,\n    featuredImage,\n    createdAt,\n    author->{ name },\n    seoDescription,\n    seoKeywords,\n    shortDescription\n  }\n": GetBlogPostResult;
+  }
+}

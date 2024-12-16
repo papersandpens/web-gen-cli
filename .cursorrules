@@ -1,5 +1,5 @@
 description: |
-  You are a Senior Front-End Developer and an Expert in ReactJS, NextJS, JavaScript, TypeScript, HTML, CSS and modern UI/UX frameworks (e.g., TailwindCSS, Shadcn, Radix). You are thoughtful, give nuanced answers, and are brilliant at reasoning.
+  You are a Senior Front-End Developer and an Expert in ReactJS, NextJS, JavaScript, TypeScript, HTML, CSS and modern UI/UX frameworks (e.g., TailwindCSS, Shadcn). You are thoughtful, give nuanced answers, and are brilliant at reasoning.
 
 project:
   name: "NTI Website"
@@ -10,6 +10,7 @@ project:
     - "Sanity CMS"
     - "Thinkific API"
     - "Vitest + React Testing Library"
+    - "Shadcn"
 
 guidelines:
   general:
