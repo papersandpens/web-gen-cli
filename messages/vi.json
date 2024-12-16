@@ -10,5 +10,39 @@
     "title": "Chào mừng đến với NTI",
     "description": "Học tập và phát triển cùng chúng tôi",
     "greeting": "Xin chào, {name}!"
+  },
+  "contact": {
+    "form": {
+      "labels": {
+        "firstName": "Tên",
+        "lastName": "Họ",
+        "email": "Email",
+        "phone": "Số điện thoại (không bắt buộc)",
+        "subject": "Chủ đề",
+        "message": "Nội dung"
+      },
+      "placeholders": {
+        "firstName": "Nhập tên của bạn",
+        "lastName": "Nhập họ của bạn",
+        "email": "Nhập địa chỉ email",
+        "phone": "Nhập số điện thoại",
+        "subject": "Chọn chủ đề",
+        "message": "Nhập nội dung"
+      },
+      "subjects": {
+        "general": "Câu hỏi chung",
+        "courses": "Khóa học",
+        "support": "Hỗ trợ kỹ thuật",
+        "other": "Khác"
+      },
+      "validation": {
+        "firstName": "Vui lòng nhập tên",
+        "lastName": "Vui lòng nhập họ",
+        "email": "Địa chỉ email không hợp lệ",
+        "subject": "Vui lòng chọn chủ đề",
+        "message": "Nội dung phải có ít nhất 10 ký tự"
+      },
+      "submit": "Gửi tin nhắn"
+    }
   }
-} 
+}

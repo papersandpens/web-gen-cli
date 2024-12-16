@@ -10,5 +10,39 @@
     "title": "Welcome to NTI",
     "description": "Learn and grow with us",
     "greeting": "Hello, {name}!"
+  },
+  "contact": {
+    "form": {
+      "labels": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone (optional)",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "firstName": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email",
+        "phone": "Enter your phone number",
+        "subject": "Select a subject",
+        "message": "Enter your message"
+      },
+      "subjects": {
+        "general": "General Inquiry",
+        "courses": "Courses",
+        "support": "Technical Support",
+        "other": "Other"
+      },
+      "validation": {
+        "firstName": "First name is required",
+        "lastName": "Last name is required",
+        "email": "Invalid email address",
+        "subject": "Please select a subject",
+        "message": "Message must be at least 10 characters"
+      },
+      "submit": "Send Message"
+    }
   }
-} 
+}

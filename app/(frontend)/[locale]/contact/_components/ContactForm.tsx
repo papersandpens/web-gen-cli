@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,16 +23,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const formSchema = z.object({
-  firstName: z.string().min(2, "First name is required"),
-  lastName: z.string().min(2, "Last name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
-  subject: z.string().min(1, "Please select a subject"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
+const createFormSchema = (t: ReturnType<typeof useTranslations>) =>
+  z.object({
+    firstName: z.string().min(2, t("validation.firstName")),
+    lastName: z.string().min(2, t("validation.lastName")),
+    email: z.string().email(t("validation.email")),
+    phone: z.string().optional(),
+    subject: z.string().min(1, t("validation.subject")),
+    message: z.string().min(10, t("validation.message")),
+  });
 
 export default function ContactForm() {
+  const t = useTranslations("contact.form");
+  const formSchema = createFormSchema(t);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,9 +63,9 @@ export default function ContactForm() {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>First name</FormLabel>
+                <FormLabel>{t("labels.firstName")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your first name" {...field} />
+                  <Input placeholder={t("placeholders.firstName")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -71,9 +76,9 @@ export default function ContactForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Last name</FormLabel>
+                <FormLabel>{t("labels.lastName")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your last name" {...field} />
+                  <Input placeholder={t("placeholders.lastName")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -87,9 +92,9 @@ export default function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t("labels.email")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your email" {...field} />
+                  <Input placeholder={t("placeholders.email")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -100,9 +105,9 @@ export default function ContactForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone (optional)</FormLabel>
+                <FormLabel>{t("labels.phone")}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your phone number" {...field} />
+                  <Input placeholder={t("placeholders.phone")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -115,18 +120,18 @@ export default function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>{t("labels.subject")}</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a subject" />
+                    <SelectValue placeholder={t("placeholders.subject")} />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="courses">Courses</SelectItem>
-                  <SelectItem value="support">Technical Support</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="general">{t("subjects.general")}</SelectItem>
+                  <SelectItem value="courses">{t("subjects.courses")}</SelectItem>
+                  <SelectItem value="support">{t("subjects.support")}</SelectItem>
+                  <SelectItem value="other">{t("subjects.other")}</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -139,10 +144,10 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("labels.message")}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Enter your message"
+                  placeholder={t("placeholders.message")}
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -153,7 +158,7 @@ export default function ContactForm() {
         />
 
         <Button type="submit" className="w-full sm:w-auto">
-          Send Message
+          {t("submit")}
         </Button>
       </form>
     </Form>
