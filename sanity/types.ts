@@ -786,11 +786,62 @@ export type GetBlogPostResult = {
   } | null;
 } | null;
 
+// Source: app/(frontend)/[locale]/contact/_components/FaqSection.tsx
+// Variable: query
+// Query: *[_type == "faq"] | order(priority desc) {        _id,        "question": question,        "answer": answer,        priority      }
+export type QueryResult = Array<{
+  _id: string;
+  question: {
+    en?: string;
+    vi?: string;
+  } | null;
+  answer: {
+    en?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    vi?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+  } | null;
+  priority: number | null;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n  *[_type == \"blog\"] | order(createdAt desc) {\n    _id,\n    title,\n    slug,\n    shortDescription,\n    featuredImage,\n    createdAt,\n    seoKeywords\n  }\n": GetBlogPostsResult;
     "\n  *[_type == \"blog\" && slug[$locale].current == $slug][0] {\n    title,\n    content,\n    featuredImage,\n    createdAt,\n    author->{ name },\n    seoDescription,\n    seoKeywords,\n    shortDescription\n  }\n": GetBlogPostResult;
+    "\n      *[_type == \"faq\"] | order(priority desc) {\n        _id,\n        \"question\": question,\n        \"answer\": answer,\n        priority\n      }\n    ": QueryResult;
   }
 }

@@ -43,6 +43,13 @@
         "message": "Nội dung phải có ít nhất 10 ký tự"
       },
       "submit": "Gửi tin nhắn"
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "alerts": {
+        "noFaqs": "Hiện tại chưa có câu hỏi thường gặp nào.",
+        "error": "Không thể tải câu hỏi thường gặp. Vui lòng thử lại sau."
+      }
     }
   }
 }

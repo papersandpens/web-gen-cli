@@ -43,6 +43,13 @@
         "message": "Message must be at least 10 characters"
       },
       "submit": "Send Message"
+    },
+    "faq": {
+      "title": "FAQs",
+      "alerts": {
+        "noFaqs": "No FAQs are currently available.",
+        "error": "Failed to load FAQs. Please try again later."
+      }
     }
   }
 }

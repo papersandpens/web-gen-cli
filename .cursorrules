@@ -32,9 +32,12 @@ guidelines:
     - "Implement accessibility features"
     - "Use const arrow functions over traditional functions"
     - "Define TypeScript types whenever possible"
+    - "Use Sanity-generated types from @types.ts for all Sanity data"
     - "Prefer Server Components by default"
     - "Use Client Components only when necessary"
     - "Implement Server Actions for data mutations"
+    - "Include revalidation settings for pages with Sanity CMS content"
+    - "Implement loading.tsx, error.tsx, and placeholder states for dynamic content pages"
 
 folder_structure:
   app:
@@ -76,6 +79,12 @@ rules:
     files: ["app/(routes)/*/types/**"]
     language: "typescript"
     contains: [".ts", ".d.ts"]
+
+  - name: "Dynamic Content Pages"
+    files: ["app/(routes)/**/page.tsx"]
+    language: "typescript"
+    contains: ["revalidate", "loading.tsx", "error.tsx"]
+    required_files: ["loading.tsx", "error.tsx"]
 
 ignore:
   - "node_modules/**"
