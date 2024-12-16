@@ -12,6 +12,11 @@
     "greeting": "Xin chào, {name}!"
   },
   "contact": {
+    "title": "Liên Hệ",
+    "metadata": {
+      "title": "Liên Hệ | NTI",
+      "description": "Liên hệ với NTI. Liên hệ với chúng tôi để được giải đáp thắc mắc về khóa học, chương trình đào tạo hoặc các câu hỏi chung."
+    },
     "form": {
       "labels": {
         "firstName": "Tên",

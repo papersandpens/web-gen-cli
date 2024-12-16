@@ -11,6 +11,7 @@ project:
     - "Thinkific API"
     - "Vitest + React Testing Library"
     - "Shadcn"
+    - "next-intl"
 
 guidelines:
   general:
@@ -39,6 +40,14 @@ guidelines:
     - "Include revalidation settings for pages with Sanity CMS content"
     - "Implement loading.tsx, error.tsx, and placeholder states for dynamic content pages"
 
+  i18n:
+    - "Use namespace-based translations (e.g., 'common.nav.home')"
+    - "Implement language switcher in layout"
+    - "Handle dynamic content with parameters using {placeholder} syntax"
+    - "Use Server Components with unstable_setRequestLocale for static content"
+    - "Implement proper fallbacks for missing translations"
+    - "Use type-safe translations with next-intl/messages"
+
 folder_structure:
   app:
     routes:
@@ -53,6 +62,17 @@ folder_structure:
     lib: "# Shared utilities"
     sanity: "# Sanity configuration"
     types: "# Shared TypeScript definitions"
+    "(locales)":
+      "(en)":
+        - "layout.tsx"
+        - "page.tsx"
+      "(vi)":
+        - "layout.tsx"
+        - "page.tsx"
+    components:
+      - "language-switcher.tsx"
+    config:
+      - "i18n.ts"
 
 rules:
   - name: "Next.js App Router Structure"
@@ -85,6 +105,30 @@ rules:
     language: "typescript"
     contains: ["revalidate", "loading.tsx", "error.tsx"]
     required_files: ["loading.tsx", "error.tsx"]
+
+  - name: "i18n Configuration"
+    files: ["middleware.ts", "next.config.js"]
+    language: "typescript"
+    contains: ["next-intl"]
+    required_config:
+      - "locales: ['en', 'vi']"
+      - "defaultLocale: 'en'"
+
+  - name: "Translation Files"
+    files: ["messages/*.json"]
+    language: "json"
+    validation:
+      - "Must have equivalent keys in all language files"
+      - "No missing translations"
+      - "Maintain consistent nesting structure"
+
+  - name: "i18n Component Usage"
+    files: ["app/**/*.tsx"]
+    language: "typescript"
+    patterns:
+      - "useTranslations('namespace')"
+      - "Link locale prop"
+      - "next-intl/link"
 
 ignore:
   - "node_modules/**"

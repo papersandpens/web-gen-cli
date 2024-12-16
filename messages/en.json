@@ -12,6 +12,11 @@
     "greeting": "Hello, {name}!"
   },
   "contact": {
+    "title": "Contact Us",
+    "metadata": {
+      "title": "Contact Us | NTI",
+      "description": "Get in touch with NTI. Contact us for any questions about our courses, programs, or general inquiries."
+    },
     "form": {
       "labels": {
         "firstName": "First name",
