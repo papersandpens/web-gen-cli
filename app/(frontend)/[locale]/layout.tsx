@@ -1,9 +1,11 @@
+import "@/app/globals.css";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import "@/app/globals.css";
+import Footer from "./_components/Footer";
+import NavBar from "./_components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +36,9 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
+          <NavBar />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

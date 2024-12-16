@@ -1,9 +1,22 @@
 {
-  "common": {
-    "nav": {
+  "nav": {
+    "banner": {
+      "title": "NTI là lãnh đạo trong nghiên cứu và đào tạo về AI.",
+      "description": "Nhập vào để khám phá tại sao.",
+      "close": "Đóng banner"
+    },
+    "secondary": {
+      "newsroom": "Tin tức",
+      "event": "Sự kiện",
+      "career": "Tuyển dụng",
+      "signIn": "Đăng nhập"
+    },
+    "main": {
       "home": "Trang chủ",
-      "courses": "Khóa học",
-      "about": "Giới thiệu"
+      "aboutUs": "Giới thiệu",
+      "insights": "Tin tức",
+      "programs": "Chương trình",
+      "getStarted": "Bắt đầu"
     }
   },
   "home": {
@@ -55,6 +68,45 @@
         "noFaqs": "Hiện tại chưa có câu hỏi thường gặp nào.",
         "error": "Không thể tải câu hỏi thường gặp. Vui lòng thử lại sau."
       }
+    }
+  },
+  "footer": {
+    "quickLinks": {
+      "title": "Liên Kết Nhanh",
+      "about": "Về Chúng Tôi",
+      "mission": "Sứ Mệnh",
+      "getInvolved": "Tham Gia",
+      "events": "Sự Kiện",
+      "contact": "Liên Hệ"
+    },
+    "resources": {
+      "title": "Tài Nguyên",
+      "blog": "Blog",
+      "caseStudies": "Nghiên Cứu",
+      "webinars": "Hội Thảo",
+      "faqs": "Câu Hỏi",
+      "careers": "Tuyển Dụng"
+    },
+    "stayConnected": {
+      "title": "Kết Nối",
+      "newsletter": "Bản Tin",
+      "socialMedia": "Mạng Xã Hội",
+      "community": "Cộng Đồng",
+      "support": "Hỗ Trợ",
+      "feedback": "Phản Hồi"
+    },
+    "subscribe": {
+      "title": "Đăng Ký",
+      "description": "Đăng ký nhận bản tin để cập nhật thông tin mới nhất.",
+      "placeholder": "Email của bạn",
+      "button": "Đăng Ký",
+      "disclaimer": "Bằng cách đăng ký, bạn đồng ý với Chính sách Bảo mật và nhận thông tin cập nhật."
+    },
+    "legal": {
+      "copyright": "© 2024 NTI. Đã đăng ký bản quyền.",
+      "privacy": "Chính Sách Bảo Mật",
+      "terms": "Điều Khoản Sử Dụng",
+      "cookies": "Chính Sách Cookie"
     }
   }
 }
