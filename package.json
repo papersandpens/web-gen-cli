@@ -1,11 +1,32 @@
 {
-  "name": "next-template-cli",
+  "name": "@papersandpens/web-gen-cli",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/papersandpens/web-gen-cli.git"
+  },
   "bin": {
-    "create-next-template": "./setup.js"
+    "web-gen-cli": "setup.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "files": [
     "template",
     "setup.js"
-  ]
+  ],
+  "dependencies": {
+    "user": "^0.0.0"
+  },
+  "description": "A CLI tool to bootstrap Next.js projects with our company's standard setup, including Next.js 14, TailwindCSS, Sanity CMS, and more.",
+  "main": "setup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/papersandpens/web-gen-cli/issues"
+  },
+  "homepage": "https://github.com/papersandpens/web-gen-cli#readme"
 }
