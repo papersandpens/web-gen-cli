@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "banner": {
+      "title": "NTI is the leader in research and teaching in AI.",
+      "description": "Dive in to discover why.",
+      "close": "Close banner"
+    },
+    "secondary": {
+      "newsroom": "Newsroom",
+      "event": "Event",
+      "career": "Career",
+      "signIn": "Sign In"
+    },
+    "main": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "insights": "Insights",
+      "programs": "Programs",
+      "getStarted": "Get Started"
+    }
+  },
+  "home": {
+    "title": "Welcome to NTI",
+    "description": "Learn and grow with us",
+    "greeting": "Hello, {name}!"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "metadata": {
+      "title": "Contact Us | Placeholder Org Name",
+      "description": "Get in touch with NTI. Contact us for any questions about our courses, programs, or general inquiries."
+    },
+    "form": {
+      "labels": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "phone": "Phone (optional)",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "firstName": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email",
+        "phone": "Enter your phone number",
+        "subject": "Select a subject",
+        "message": "Enter your message"
+      },
+      "subjects": {
+        "general": "General Inquiry",
+        "courses": "Courses",
+        "support": "Technical Support",
+        "other": "Other"
+      },
+      "validation": {
+        "firstName": "First name is required",
+        "lastName": "Last name is required",
+        "email": "Invalid email address",
+        "subject": "Please select a subject",
+        "message": "Message must be at least 10 characters"
+      },
+      "submit": "Send Message"
+    },
+    "faq": {
+      "title": "FAQs",
+      "alerts": {
+        "noFaqs": "No FAQs are currently available.",
+        "error": "Failed to load FAQs. Please try again later."
+      }
+    }
+  },
+  "footer": {
+    "quickLinks": {
+      "title": "Quick Links",
+      "about": "About Us",
+      "mission": "Our Mission",
+      "getInvolved": "Get Involved",
+      "events": "Events",
+      "contact": "Contact Us"
+    },
+    "resources": {
+      "title": "Resources",
+      "blog": "Blog",
+      "caseStudies": "Case Studies",
+      "webinars": "Webinars",
+      "faqs": "FAQs",
+      "careers": "Careers"
+    },
+    "stayConnected": {
+      "title": "Stay Connected",
+      "newsletter": "Newsletter",
+      "socialMedia": "Social Media",
+      "community": "Community",
+      "support": "Support",
+      "feedback": "Feedback"
+    },
+    "subscribe": {
+      "title": "Subscribe",
+      "description": "Join our newsletter for updates on features and releases.",
+      "placeholder": "Your email here",
+      "button": "Subscribe",
+      "disclaimer": "By subscribing, you agree to our Privacy Policy and receive updates."
+    },
+    "legal": {
+      "copyright": "© 2024 NTI. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "cookies": "Cookies Policy"
+    }
+  }
+}
