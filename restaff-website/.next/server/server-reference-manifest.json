@@ -1,0 +1,30 @@
+{
+  "node": {
+    "1d4c3d40c15b6941e2306ec3ecacaaf1228472d0": {
+      "workers": {
+        "app/(frontend)/[locale]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2F%40sanity%2Fnext-loader%2Fdist%2Fserver-actions.js%22%2C%5B%22revalidateSyncTags%22%2C%22setPerspectiveCookie%22%5D%5D%2C%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2Fnext-sanity%2Fdist%2Fvisual-editing%2Fserver-actions.js%22%2C%5B%22revalidateRootLayout%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(frontend)/[locale]/page": "action-browser"
+      }
+    },
+    "391d002edb862d22c801ee9b70a8cd72f4096598": {
+      "workers": {
+        "app/(frontend)/[locale]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2F%40sanity%2Fnext-loader%2Fdist%2Fserver-actions.js%22%2C%5B%22revalidateSyncTags%22%2C%22setPerspectiveCookie%22%5D%5D%2C%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2Fnext-sanity%2Fdist%2Fvisual-editing%2Fserver-actions.js%22%2C%5B%22revalidateRootLayout%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(frontend)/[locale]/page": "action-browser"
+      }
+    },
+    "327bbb2d581a17311e1bab9fe6bf143a695eb64c": {
+      "workers": {
+        "app/(frontend)/[locale]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2F%40sanity%2Fnext-loader%2Fdist%2Fserver-actions.js%22%2C%5B%22revalidateSyncTags%22%2C%22setPerspectiveCookie%22%5D%5D%2C%5B%22%2FUsers%2Fminhmeo%2FDesktop%2Fweb-gen%2Frestaff-website%2Fnode_modules%2Fnext-sanity%2Fdist%2Fvisual-editing%2Fserver-actions.js%22%2C%5B%22revalidateRootLayout%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/(frontend)/[locale]/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "wsPJulF5IviRvRyvzCHfRmWVf8y4o3+9OsOHm908uQA="
+}
