@@ -125,7 +125,3 @@ If you encounter any issues:
 1. Check the error logs
 2. Contact the development team
 3. Create an issue in the repository
-
-## License
-
-Internal use only - PNP
