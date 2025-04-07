@@ -1,6 +1,6 @@
 {
   "name": "@papersandpens/web-gen-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/papersandpens/web-gen-cli.git"
@@ -18,7 +18,7 @@
   "dependencies": {
     "user": "^0.0.0"
   },
-  "description": "A CLI tool to bootstrap Next.js projects with our company's standard setup, including Next.js 14, TailwindCSS, Sanity CMS, and more.",
+  "description": "A CLI tool to bootstrap Next.js projects with our company's standard setup, including Next.js 15, TailwindCSS, Sanity CMS, and more.",
   "main": "setup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

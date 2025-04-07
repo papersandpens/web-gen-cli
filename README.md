@@ -1,10 +1,10 @@
 # Next.js Template CLI
 
-A CLI tool to bootstrap Next.js projects with our company's standard setup, including Next.js 14, TailwindCSS, Sanity CMS, and more.
+A CLI tool to bootstrap Next.js projects with our company's standard setup, including Next.js 15, TailwindCSS, Sanity CMS, and more.
 
 ## Features
 
-- 🚀 Next.js 14 with App Router
+- 🚀 Next.js 15 with App Router
 - 🎨 TailwindCSS + Shadcn UI
 - 📝 Sanity CMS Integration
 - 🌐 Internationalization with next-intl
@@ -30,7 +30,7 @@ Follow the prompts to:
 
 The template sets up:
 
-- Next.js 14 with App Router configuration
+- Next.js 15 with App Router configuration
 - TailwindCSS and Shadcn UI components
 - Sanity CMS integration
 - TypeScript configuration with path aliases

@@ -1,10 +1,10 @@
 # Placeholder Project Name
 
-A modern web application built with Next.js 14, featuring server-side rendering, CMS integration, and course management.
+A modern web application built with Next.js 15, featuring server-side rendering, CMS integration, and course management.
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 (App Router)
 - **Styling:** TailwindCSS
 - **CMS:** Sanity Studio (Integrated)
 - **Testing:** Vitest + React Testing Library
@@ -14,7 +14,7 @@ A modern web application built with Next.js 14, featuring server-side rendering,
 
 - **Server-First Approach**
 
-  - Leverages Next.js 14 Server Components for optimal performance
+  - Leverages Next.js 15 Server Components for optimal performance
   - Uses Server Actions for form handling and data mutations
   - Progressive enhancement with client components when needed
 
@@ -29,8 +29,8 @@ A modern web application built with Next.js 14, featuring server-side rendering,
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/papersandpens/nti-website.git
-   cd nti-website
+   git clone https://github.com/papersandpens/project-name.git
+   cd project-name
    ```
 
 2. **Install dependencies**

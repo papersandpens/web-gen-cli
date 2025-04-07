@@ -4,7 +4,7 @@ description: |
 project:
   name: "Placeholder Project Name"
   tech_stack:
-    - "Next.js 14 (App Router)"
+    - "Next.js 15 (App Router)"
     - "TypeScript"
     - "TailwindCSS"
     - "Sanity CMS"

@@ -4,8 +4,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import Footer from "./_components/Footer";
-import NavBar from "./_components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +11,16 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: {
+export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const params = await props.params;
+
+  const { locale } = params;
+
+  const { children } = props;
+
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
@@ -36,9 +37,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
-          <NavBar />
           {children}
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
